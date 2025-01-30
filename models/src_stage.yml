@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: stage
+    database: snowflake_case_study 
+    schema: stage    
+    tables:
+      - name: prod_mstr_pna1
+      - name: prod_mstr_tpna1
+      - name: cust_mstr_kna1
+      - name: cust_mstr_tkna1
+      - name: invoice_raw
