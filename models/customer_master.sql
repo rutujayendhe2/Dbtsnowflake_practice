@@ -5,6 +5,7 @@ WITH kna1 AS (
         COUNTRY AS cust_country,
         ROW_NUMBER() OVER (PARTITION BY CUSTOMERNUMBER ORDER BY LOCATION DESC) AS row_num
     FROM {{ source('stage', 'cust_mstr_kna1') }}
+), 
 tkna1 AS (
     SELECT 
         CUST_NUMBER AS cust_number,
