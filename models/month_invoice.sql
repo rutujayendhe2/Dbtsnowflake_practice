@@ -1,7 +1,7 @@
 
 WITH aggregated_invoice AS (
     SELECT
-        DATE_TRUNC('MONTH', transaction_date) AS transaction_month,  -- Aggregating by month
+        DATE_TRUNC('MONTH', transaction_date) AS transaction_month, 
         customer_country_code,
         region,
         zone,

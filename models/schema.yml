@@ -1,0 +1,101 @@
+version: 2
+
+models:
+  # Customer Master Model
+  - name: customer_master
+    description: "This view aggregates customer details from various sources and augments them with country dialing codes."
+    columns:
+      - name: cust_number
+        description: "Unique identifier for each customer."
+      - name: cust_name
+        description: "Full name of the customer, concatenated from the first and last name."
+      - name: cust_location
+        description: "The location of the customer (e.g., city)."
+      - name: cust_country
+        description: "The country where the customer is located."
+      - name: cust_country_code
+        description: "The international dialing code for the customer's country, derived from the country reference table."
+
+  # Documentation for Product Master View
+  - name: product_master
+    description: "This view aggregates product-related details and categorizes products based on category codes (e.g., Snacks, Cereal, Dairy)."
+    columns:
+      - name: product_id
+        description: "Unique identifier for the product."
+      - name: product_name
+        description: "Name of the product."
+      - name: product_pricing
+        description: "Pricing information of the product."
+      - name: product_margin
+        description: "Profit margin for the product."
+      - name: prod_date
+        description: "Date when the product was introduced."
+      - name: product_category
+        description: "Category of the product (e.g., Snacks, Cereal, Dairy)."
+
+  # Documentation for Day Invoice Table
+  - name: day_invoice
+    description: "Transactional data aggregated by day for each invoice."
+    columns:
+      - name: transaction_date
+        description: "The date the transaction took place."
+      - name: customer_country_code
+        description: "The country code of the customer."
+      - name: region
+        description: "The region where the transaction occurred."
+      - name: zone
+        description: "The specific zone or location."
+      - name: cust_number
+        description: "The customer number."
+      - name: cust_name
+        description: "The name of the customer."
+      - name: cust_location
+        description: "The location of the customer."
+      - name: product_name
+        description: "The name of the product sold."
+      - name: product_id
+        description: "The product identifier."
+      - name: product_category
+        description: "The category of the product sold."
+      - name: total_quantity
+        description: "Total quantity of products sold."
+      - name: total_value
+        description: "Total value of the invoice."
+      - name: total_margin
+        description: "Total profit margin for the invoice."
+      - name: total_order
+        description: "Total number of orders in the invoice."
+
+  # Documentation for Month Invoice Table
+  - name: month_invoice
+    description: "Transactional data aggregated by month for each invoice."
+    columns:
+      - name: transaction_month
+        description: "The month of the transaction."
+      - name: customer_country_code
+        description: "The country code of the customer."
+      - name: region
+        description: "The region where the transaction occurred."
+      - name: zone
+        description: "The specific zone or location."
+      - name: cust_number
+        description: "The customer number."
+      - name: cust_name
+        description: "The name of the customer."
+      - name: cust_location
+        description: "The location of the customer."
+      - name: product_name
+        description: "The name of the product sold."
+      - name: product_id
+        description: "The product identifier."
+      - name: product_category
+        description: "The category of the product sold."
+      - name: total_quantity
+        description: "Total quantity of products sold."
+      - name: total_value
+        description: "Total value of the invoice."
+      - name: total_margin
+        description: "Total profit margin for the invoice."
+      - name: total_order
+        description: "Total number of orders in the invoice."
+

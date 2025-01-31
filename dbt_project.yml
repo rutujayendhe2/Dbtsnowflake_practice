@@ -54,5 +54,5 @@ models:
 
     seeds:
     country_code:
-      materialized: view
+      materialized: table
     

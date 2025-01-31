@@ -9,4 +9,5 @@ sources:
       - name: prod_mstr_tpna1
       - name: cust_mstr_kna1
       - name: cust_mstr_tkna1
+      - name: country_code
       - name: invoice_raw

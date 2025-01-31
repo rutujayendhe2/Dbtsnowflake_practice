@@ -4,19 +4,18 @@ WITH kna1 AS (
         LOCATION AS cust_location,
         COUNTRY AS cust_country,
         ROW_NUMBER() OVER (PARTITION BY CUSTOMERNUMBER ORDER BY LOCATION DESC) AS row_num
-    FROM snowflake_case_study.stage.cust_mstr_kna1
-),
+    FROM {{ source('stage', 'cust_mstr_kna1') }}
 tkna1 AS (
     SELECT 
         CUST_NUMBER AS cust_number,
         FIRST_NAME || ' ' || LAST_NAME AS cust_name
-    FROM snowflake_case_study.stage.cust_mstr_tkna1
+    FROM {{ source('stage', 'cust_mstr_tkna1') }}
 ),
 country_ref AS (
     SELECT 
         Country,
         DialingCode
-    FROM SNOWFLAKE_CASE_STUDY.STAGE.country_code
+    FROM {{ source('stage', 'country_code') }}
 )
 
 SELECT 
